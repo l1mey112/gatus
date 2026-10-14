@@ -1,0 +1,39 @@
+services:
+  app:
+    image: twinproduction/gatus:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      GATUS_CONFIG_PATH: /config
+    volumes:
+      - config:/config
+      - data:/data
+
+volumes:
+  config:
+  data:
+
+x-zenith:
+  catalog:
+    name: Gatus
+    description: Status page and health monitoring for services.
+    authors: [TwiN]
+    tags: [monitoring, status-page]
+    source: https://github.com/TwiN/gatus
+    license: MIT
+  expose:
+    - service: app
+      port: 8080
+      web: true
+  storage:
+    config:
+      volume: config
+      label: Configuration
+      description: Gatus configuration files.
+      public: false
+    data:
+      volume: data
+      label: Application data
+      description: Persistent Gatus storage data.
+      public: false
