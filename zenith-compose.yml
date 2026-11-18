@@ -1,9 +1,9 @@
 services:
   app:
-    image: "docker.io/twinproduction/gatus@sha256:e6cdbefbe05b70e49ab2861335d13ab5730cd67e581e7f4c995082cd7f0f952c"
+    image: "docker.io/twinproduction/gatus@sha256:1ae02e9f2964fe08134dbe87fb8029393a264927aa239e8961fd057873ac1193"
     x-zenith-image:
       source: "twinproduction/gatus:latest"
-      last_pin: "docker.io/twinproduction/gatus@sha256:e6cdbefbe05b70e49ab2861335d13ab5730cd67e581e7f4c995082cd7f0f952c"
+      last_pin: "docker.io/twinproduction/gatus@sha256:1ae02e9f2964fe08134dbe87fb8029393a264927aa239e8961fd057873ac1193"
     restart: unless-stopped
     ports:
       - "8080:8080"
